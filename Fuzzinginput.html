@@ -36,7 +36,28 @@
         </fieldset>
         <!--说明区域-->
         <div class="layui-row layui-col-space15">
-          <div class="layui-col-md6">
+          <ul class="layui-nav layui-nav-tree layui-inline layui-col-md4" style="margin-right: 10px;">
+            <li class="layui-nav-item layui-nav-itemed">
+              <a href="">漏洞挖掘</a>
+              <dl class="layui-nav-child">
+                <dd><a href="javascript:;">目标程序</a></dd>
+                <dd><a href="javascript:;">测试用例</a></dd>
+                <dd><a href="javascript:;">编写fuzzer</a></dd>
+                <dd><a href="javascript:;">字典</a></dd>
+                <dd><a href="javascript:;">定制变异器</a></dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed">
+              <a href="">漏洞扫描</a>
+              <dl class="layui-nav-child">
+                <dd><a href="javascript:;">端口扫描</a></dd>
+                <dd><a href="javascript:;">弱口令扫描</a></dd>
+                <dd><a href="javascript:;">指纹库匹配</a></dd>
+              </dl>
+            </li>
+          </ul>
+          
+          <div class="layui-col-md8">
             <div class="layui-card">
               <div class="layui-card-header">输入</div>
               <div class="layui-card-body">
@@ -49,12 +70,23 @@
         </div>
         <br>
         <div style="text-align: center;">
-          <p> Fuzzing 平台 —— ©广州大学网研院 </p>
+          <p> Ceres Fuzzing 平台 —— ©广州大学网研院 </p>
         </div>
         <br>
       </div>
     <div id="msg" style="display: none;  width: 800px; height: 600px; position: absolute; top: 150px; left: 40%; line-height: 30px; border-radius: 5px; text-align: center; color: #000;">
       <textarea id="msgTextArea" style="width:800px;height:600px;"></textarea>
     </div>
+
+    <script>
+      layui.use('element', function(){
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+          //console.log(elem)
+          layer.msg(elem.text());
+        });
+      });
+    </script>
 </body>
 </html>
