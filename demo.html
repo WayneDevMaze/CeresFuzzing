@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>零封安全</title>
+  <link rel="stylesheet" href=".\src\css\layui.css">
+  <link rel="stylesheet" href=".\src\css\layout.css">
+  <link rel="icon" href="./src/images/logo.png" />
+</head>
+
+<body style="background: rgb(226, 226, 226);">
+
+  <div class="layui-layout layui-layout-admin" style="position: sticky; top:0;">
+    <div class="layui-header layui-bg-blue">
+      <div class="layui-logo layui-bg-blue">
+        <img style="height: 40px; padding-bottom:5px;" src=".\src\images\logo.png">
+        <a href="index.html" style="color:white;"> 零封安全</a>
+      </div>
+      <!-- 头部区域（可配合layui已有的水平导航） -->
+      <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item"><a href="">攻防知识图谱</a></li>
+        <li class="layui-nav-item"><a href="AI_fuzzing.html">AI Fuzzing</a></li>
+        <li class="layui-nav-item"><a href="product_service.html">产品服务</a></li>
+        <li class="layui-nav-item"><a href="demo.html">场景案例</a></li>
+        <li class="layui-nav-item"><a href="tech_support.html">技术支持</a></li>
+        <li class="layui-nav-item"><a href="">关于我们</a></li>
+
+        <!-- <li class="layui-nav-item">
+          <a href="javascript:;">其它系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="">邮件管理</a></dd>
+            <dd><a href="">消息管理</a></dd>
+            <dd><a href="">授权管理</a></dd>
+          </dl>
+        </li> -->
+      </ul>
+      <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+          <a href="javascript:;">
+            <img src="./src/images/banner/banner1.png" class="layui-nav-img">
+            用户
+          </a>
+          <dl class="layui-nav-child">
+            <dd><a href="">基本资料</a></dd>
+            <dd><a href="">安全设置</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">退出</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="header" style="padding:10px">场景案例
+  </div>
+
+  <div class="card1" >
+    <div class="card2">
+      <div class="header" style="font-size: 14px;">设备入网检测
+      </div>
+      <div class="card1">
+        <img style="height: 200px;" src=".\src\images\sbrw.png">
+      </div>
+      <div class="content">
+        <br>
+        对工业互联网真实生产环境进行仿真，在工业互联网设备入网前，
+        对设备进行安全检测，从源头遏制工业互联网漏洞威胁。
+      </div>
+    </div>
+
+    <div class="card2">
+      <div class="header" style="font-size: 14px;">态势感知平台构建
+      </div>
+      <div class="card1">
+        <img style="height: 200px;" src=".\src\images\tsgz.png">
+      </div>
+      <div class="content">
+        <br>
+        攻防知识图谱为态势感知平台的信息库和知识库提供数据基础，并告诉关联网络攻击，助力态势评估和态势预测。
+        高效的漏洞挖掘和漏洞扫描产品能够快速补充知识库和信息库。
+      </div>
+    </div>
+
+    <div class="card2">
+      <div class="header" style="font-size: 14px;">网络攻防靶场构建
+      </div>
+      <div class="card1">
+        <img style="height: 200px;" src=".\src\images\wlgf.png">
+      </div>
+      <div class="content">
+        <br>
+        网络攻防靶场构建与漏洞库、扫描器等产品密不可分。零封安全攻防知识图谱、
+        漏洞挖掘和漏洞扫描产品能够更为高效地辅助网络攻防靶场构建及网络攻防演练。
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <!-- 底部固定区域 -->
+    © 零封安全 - footer
+  </div>
+
+
+  <script src=".\src\layui.js"></script>
+  <script>
+    //JavaScript代码区域
+    layui.use('carousel', function () {
+      var carousel = layui.carousel;
+      carousel.render({
+        elem: '#test1'
+        , width: '1200px' //设置容器宽度
+        , height: '300px' //设置容器高度
+        // , full:'true' //是否全屏轮播,默认false
+        // , arrow: 'always' //始终显示箭头和点击按钮
+        // ,anim: 'updown' //切换动画方式，可从各个方向滚动
+      });
+    });
+  </script>
+
+  <script>
+    layui.use('element', function () {
+      var element = layui.element;
+    });
+  </script>
+
+</body>
+
+</html>
