@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>零封安全</title>
-  <link rel="stylesheet" href=".\src\css\layui.css">
-  <link rel="stylesheet" href=".\src\css\layout.css">
+  <link rel="stylesheet" href=".\src\css\layui.css" />
+  <link rel="stylesheet" href=".\src\css\layout.css" />
   <link rel="icon" href="./src/images/logo.png" />
+  <script type="text/javascript" src="./src/js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body style="background: rgb(226, 226, 226);">
@@ -36,16 +37,16 @@
       </ul>
       <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
-          <a href="javascript:;">
+          <!-- <a href="javascript:;" style="display:block;">
             <img src="./src/images/banner/banner1.png" class="layui-nav-img">
             用户
-          </a>
-          <dl class="layui-nav-child">
-            <dd><a href="fuzzing_input.html">基本资料</a></dd>
+          </a> -->
+          <!-- <dl class="layui-nav-child">
+            <dd><a href="">基本资料</a></dd>
             <dd><a href="">安全设置</a></dd>
-          </dl>
+          </dl> -->
         </li>
-        <li class="layui-nav-item"><a href="">退出</a></li>
+        <li class="layui-nav-item"><a id="login-bt" onclick="login()" href="#" >登录</a></li>
       </ul>
     </div>
   </div>
@@ -60,13 +61,11 @@
     </div>
   </div>
 
-
-
   <div class="header">两大关键技术</div>
   <div class="card1">
     <div class="card2">
-      <div class="header" style="font-size: 14px;">
-        <img style="height: 20px;" src=".\src\images\gfzs.svg">
+      <div class="header" style="font-size: 18px;">
+        <img style="height: 40px;" src=".\src\images\gfzs.svg">
         <div>攻防知识图谱</div>
       </div>
       <div class="content">
@@ -77,8 +76,8 @@
     </div>
 
     <div class="card2">
-      <div class="header" style="font-size: 14px;">
-        <img style="height: 20px;" src=".\src\images\aifuzzing.svg">
+      <div class="header" style="font-size: 18px;">
+        <img style="height: 40px;" src=".\src\images\aifuzzing.svg">
         <div>AI Fuzzing</div>
       </div>
       <div class="content">
@@ -96,7 +95,7 @@
   </div>
   <div class="card1">
     <div class="card2">
-      <div class="header" style="font-size: 14px;">
+      <div class="header" style="font-size: 18px;">
         <div>漏洞知识图谱及攻击链查询
         </div>
       </div>
@@ -108,7 +107,7 @@
     </div>
 
     <div class="card2">
-      <div class="header" style="font-size: 14px;">
+      <div class="header" style="font-size: 18px;">
         <div>基于攻防知识图谱的漏洞扫描产品
         </div>
       </div>
@@ -120,7 +119,7 @@
     </div>
 
     <div class="card2">
-      <div class="header" style="font-size: 14px;">
+      <div class="header" style="font-size: 18px;">
         <div>AI赋能漏洞挖掘产品
         </div>
       </div>
@@ -137,7 +136,7 @@
   <div class="header">覆盖主流场景
   </div>
 
-  <div class="header" style="font-size: 14px;">漏洞知识图谱及攻击链查询
+  <div class="header" style="font-size: 18px;">漏洞知识图谱及攻击链查询
   </div>
 
   <div class="card1">
@@ -205,8 +204,6 @@
     </div>
   </div>
 
-
-
   <div class="footer">
     <!-- 底部固定区域 -->
     © 零封安全 - footer
@@ -233,6 +230,24 @@
     layui.use('element', function () {
       var element = layui.element;
     });
+  </script>
+
+  <script>
+    function login () {
+      layui.use('layer', function () {
+        var layer = layui.layer;
+        var index = layer.open({
+          skin: 'demo-class',
+          type: 2,
+          content: ['login.html', 'no'],//这里content是一个普通的String
+          area: ['400px', '300px'],
+          fixed: false,
+          resize: false,
+        });
+
+        layer.title("登录零封安全", index);
+      });
+    }
   </script>
 
 </body>

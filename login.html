@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>零封安全</title>
+  <link rel="icon" href="./src/images/logo.png" />
+  <link rel="stylesheet" href="./src/css/login.css" />
+  <link rel="stylesheet" href="./src/css/layout.css" />
+  <script type="text/javascript" src="./src/js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+  <div class="login-bg">
+
+    <div class="card" style="height: 50px;">
+      <img src="./src/images/logo.png" style="height: 24px;">登录零封安全
+    </div>
+
+    <div class="line"></div>
+
+    <div class="login-form">
+      <div class="card">
+        <div class="login-info">账号</div>
+        <input id="user-name" placeholder="请在此输入账号" class="login-input" type="text" name="fname" />
+      </div>
+      <div class="card">
+        <div class="login-info">密码</div>
+        <input placeholder="请在此输入密码" class="login-input" type="password" name="lname" />
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="card" style="height: 50px;">
+      <input class="login-bt" type="submit" value="登录" id="login-bt"/>
+    </div>
+
+  </div>
+
+  <script>
+    $("#login-bt").click(function(){
+      alert("登录");
+    });
+
+
+  </script>
+
+</body>
+
+</html>

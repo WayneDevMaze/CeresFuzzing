@@ -11,7 +11,7 @@
 
 <body style="background: rgb(226, 226, 226);">
 
-  <div class="layui-layout layui-layout-admin" style="position: sticky; top:0;">
+  <div class="layui-ldayout layui-layout-admin" style="position: sticky; top:0; z-index:99; ">
     <div class="layui-header layui-bg-blue">
       <div class="layui-logo layui-bg-blue">
         <img style="height: 40px; padding-bottom:5px;" src=".\src\images\logo.png">
@@ -27,72 +27,67 @@
         <li class="layui-nav-item"><a href="">关于我们</a></li>
 
         <!-- <li class="layui-nav-item">
-          <a href="javascript:;">其它系统</a>
-          <dl class="layui-nav-child">
-            <dd><a href="">邮件管理</a></dd>
-            <dd><a href="">消息管理</a></dd>
-            <dd><a href="">授权管理</a></dd>
-          </dl>
-        </li> -->
+              <a href="javascript:;">其它系统</a>
+              <dl class="layui-nav-child">
+                <dd><a href="">邮件管理</a></dd>
+                <dd><a href="">消息管理</a></dd>
+                <dd><a href="">授权管理</a></dd>
+              </dl>
+            </li> -->
       </ul>
       <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
-          <a href="javascript:;">
+          <!-- <a href="javascript:;" style="display:block;">
             <img src="./src/images/banner/banner1.png" class="layui-nav-img">
             用户
-          </a>
-          <dl class="layui-nav-child">
-            <dd><a href="">基本资料</a></dd>
-            <dd><a href="">安全设置</a></dd>
-          </dl>
+          </a> -->
+          <!-- <dl class="layui-nav-child">
+                <dd><a href="">基本资料</a></dd>
+                <dd><a href="">安全设置</a></dd>
+              </dl> -->
         </li>
-        <li class="layui-nav-item"><a href="">退出</a></li>
+        <li class="layui-nav-item"><a href="#" id="login-bt" onclick="login()">登录</a></li>
       </ul>
     </div>
   </div>
-  
+
   <div class="header" style="padding:10px">场景案例
   </div>
 
-  <div class="card1" >
+  <div class="card1">
     <div class="card2">
-      <div class="header" style="font-size: 14px;">设备入网检测
-      </div>
-      <div class="card1">
-        <img style="height: 200px;" src=".\src\images\sbrw.png">
+      <div class="header" style="font-size: 18px;">设备入网检测
       </div>
       <div class="content">
-        <br>
         对工业互联网真实生产环境进行仿真，在工业互联网设备入网前，
         对设备进行安全检测，从源头遏制工业互联网漏洞威胁。
       </div>
     </div>
+    <img style="height: 200px;" src=".\src\images\sbrw.png">
+  </div>
 
+  <div class="card1">
+    <img style="height: 200px;" src=".\src\images\tsgz.png">
     <div class="card2">
-      <div class="header" style="font-size: 14px;">态势感知平台构建
-      </div>
-      <div class="card1">
-        <img style="height: 200px;" src=".\src\images\tsgz.png">
+      <div class="header" style="font-size: 18px;">态势感知平台构建
       </div>
       <div class="content">
-        <br>
         攻防知识图谱为态势感知平台的信息库和知识库提供数据基础，并告诉关联网络攻击，助力态势评估和态势预测。
         高效的漏洞挖掘和漏洞扫描产品能够快速补充知识库和信息库。
       </div>
     </div>
+  </div>
 
+  <div class="card1">
     <div class="card2">
-      <div class="header" style="font-size: 14px;">网络攻防靶场构建
-      </div>
-      <div class="card1">
-        <img style="height: 200px;" src=".\src\images\wlgf.png">
+      <div class="header" style="font-size: 18px;">网络攻防靶场构建
       </div>
       <div class="content">
-        <br>
         网络攻防靶场构建与漏洞库、扫描器等产品密不可分。零封安全攻防知识图谱、
         漏洞挖掘和漏洞扫描产品能够更为高效地辅助网络攻防靶场构建及网络攻防演练。
       </div>
     </div>
+    <img style="height: 200px;" src=".\src\images\wlgf.png">
   </div>
 
   <div class="footer">
@@ -123,6 +118,23 @@
     });
   </script>
 
+  <script>
+    function login() {
+      layui.use('layer', function () {
+        var layer = layui.layer;
+        var index = layer.open({
+          skin: 'demo-class',
+          type: 2,
+          content: ['login.html', 'no'],//这里content是一个普通的String
+          area: ['400px', '300px'],
+          fixed: false,
+          resize: false,
+        });
+
+        layer.title("登录零封安全", index);
+      });
+    }
+  </script>
 </body>
 
 </html>

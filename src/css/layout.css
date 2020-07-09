@@ -1,9 +1,6 @@
-br{
-    background: white;
-}
-
 .card1{
     display: flex;
+    padding-bottom: 10px;
     flex-direction: row;
     align-items:flex-start;
     justify-content: center;
@@ -25,8 +22,8 @@ br{
     
     background: white;
     text-align: center;
-    height: 60px;
-    font-size: 18px;
+    height: 80px;
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -45,14 +42,22 @@ br{
 .content{
     display: flex;
     flex-direction: row;
-    align-items:flex-start;
+    align-items:center;
     justify-content: center;
     line-height:25px;
-    width: 400px;
+    /* width: 400px; */
 }
 
 .line{
-    width: 600px;
+    width: 90%;
     height: 1px;
+    margin: 0;
     background: rgb(235, 235, 235);
+}
+
+body .demo-class .layui-layer-title{
+    background:#c00; 
+    color:#fff; 
+    border: none;
+    height: 0;
 }

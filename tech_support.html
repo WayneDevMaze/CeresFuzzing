@@ -10,7 +10,7 @@
   <link rel="icon" href="./src/images/logo.png" />
 </head>
 
-<body style="background: rgb(226, 226, 226);">
+<body style=" background: rgb(226, 226, 226);">
   <div class="layui-ldayout layui-layout-admin" style="position: sticky; top:0; ">
     <div class="layui-header layui-bg-blue">
       <div class="layui-logo layui-bg-blue">
@@ -37,30 +37,29 @@
       </ul>
       <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
-          <a href="javascript:;">
+          <!-- <a href="javascript:;">
             <img src="./src/images/banner/banner1.png" class="layui-nav-img">
             用户
-          </a>
+          </a> -->
           <dl class="layui-nav-child">
-            <dd><a href="fuzzing_input.html">基本资料</a></dd>
+            <dd><a href="">基本资料</a></dd>
             <dd><a href="">安全设置</a></dd>
           </dl>
         </li>
-        <li class="layui-nav-item"><a href="">退出</a></li>
+        <li class="layui-nav-item"><a href="#" id="login-bt" onclick="login()">登录</a></li>
       </ul>
     </div>
   </div>
 
   <div class="header" style="padding:10px">技术支持</div>
 
-  <div  class="card1">
+  <div  class="card1" style="height:500px;">
     <div class="d_statement" id="status">
       <input class="i_statement" type="text" id="statement" placeholder="在此输入遇到的问题">
       <button id="confirm" class="b_confirm">搜索</button>
     </div>
   </div>
 
-  <div class="line"></div>
 
   <div class="footer">
     <!-- 底部固定区域 -->
@@ -89,6 +88,24 @@
       var element = layui.element;
     });
   </script>
+
+  <script>
+      function login() {
+        layui.use('layer', function () {
+          var layer = layui.layer;
+          var index = layer.open({
+            skin: 'demo-class',
+            type: 2,
+            content: ['login.html', 'no'],//这里content是一个普通的String
+            area: ['400px', '300px'],
+            fixed: false,
+            resize: false,
+          });
+  
+          layer.title("登录零封安全", index);
+        });
+      }
+    </script>
 
 </body>
 
