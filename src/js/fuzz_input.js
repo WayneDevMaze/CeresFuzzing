@@ -1,3 +1,4 @@
+
 function fuzztarget() {
     
 }
@@ -11,5 +12,5 @@ function fuzzdict() {
     
 }
 function fuzzrun() {
-    
+    alert("run");
 }
