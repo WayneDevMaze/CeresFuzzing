@@ -10,7 +10,6 @@
 </head>
 
 <body style="background: rgb(226, 226, 226);">
-
   <div class="layui-ldayout layui-layout-admin" style="position: sticky; top:0; z-index:99; ">
     <div class="layui-header layui-bg-blue">
       <div class="layui-logo layui-bg-blue">
@@ -51,43 +50,39 @@
     </div>
   </div>
 
-  <div class="header" style="padding:10px">场景案例
-  </div>
-
   <div class="card1">
-    <div class="card2">
-      <div class="header" style="font-size: 18px;">设备入网检测
-      </div>
-      <div class="content">
-        对工业互联网真实生产环境进行仿真，在工业互联网设备入网前，
-        对设备进行安全检测，从源头遏制工业互联网漏洞威胁。
-      </div>
-    </div>
-    <img style="height: 200px;" src=".\src\images\sbrw.png">
-  </div>
-
-  <div class="card1">
-    <img style="height: 200px;" src=".\src\images\tsgz.png">
-    <div class="card2">
-      <div class="header" style="font-size: 18px;">态势感知平台构建
-      </div>
-      <div class="content">
-        攻防知识图谱为态势感知平台的信息库和知识库提供数据基础，并告诉关联网络攻击，助力态势评估和态势预测。
-        高效的漏洞挖掘和漏洞扫描产品能够快速补充知识库和信息库。
+    <div class="layui-carousel" id="test1">
+      <div carousel-item>
+        <img src="./src/images/knowledge_map/introduction.png">
+        <img src="./src/images/knowledge_map/introduction.png">
+        <!-- <img src="./src/images/banner/banner2.png">
+        <img src="./src/images/banner/banner3.png"> -->
       </div>
     </div>
   </div>
 
+  <div class="header" style="padding:10px">攻防知识图谱
+  </div>
   <div class="card1">
-    <div class="card2">
-      <div class="header" style="font-size: 18px;">网络攻防靶场构建
+    <div class="card2" style="width: 1000px; text-align:center">
+      <div class="header" style="font-size: 18px;">知识图谱——核心技术优势
       </div>
-      <div class="content">
-        网络攻防靶场构建与漏洞库、扫描器等产品密不可分。零封安全攻防知识图谱、
-        漏洞挖掘和漏洞扫描产品能够更为高效地辅助网络攻防靶场构建及网络攻防演练。
+      <div class="content" style="width: 1000px;">
+        全国首个链条式覆盖的整体知识框架，覆盖近10种工控协议与超5000种固件，通过知识匹配对比发现潜在漏洞并预警。
       </div>
+      <a href="http://172.22.57.17:8090/studio/index.html#/" class="layui-btn layui-btn-sm layui-btn-normal"
+        style="margin-top: 15px;">了解详情</a>
     </div>
-    <img style="height: 200px;" src=".\src\images\wlgf.png">
+
+  </div>
+
+  <div class="card1">
+    <div class="card2" style="width: 900px; text-align:center;">
+      <img width="900px" src="./src/images/knowledge_map/map1.jpg"><br><br>
+      <img width="900px" src="./src/images/knowledge_map/map2.jpg"><br><br>
+      <img width="900px" src="./src/images/knowledge_map/map3.jpg"><br><br>
+      <img width="900px" src="./src/images/knowledge_map/map4.jpg">
+    </div>
   </div>
 
   <div class="footer">
@@ -97,6 +92,14 @@
 
 
   <script src=".\src\layui.js"></script>
+  <script>
+    //JavaScript代码区域
+    layui.use('element', 'carousel', function () {
+      var element = layui.element,
+        carousel = layui.carousel;
+    });
+  </script>
+
   <script>
     //JavaScript代码区域
     layui.use('carousel', function () {
@@ -109,12 +112,6 @@
         // , arrow: 'always' //始终显示箭头和点击按钮
         // ,anim: 'updown' //切换动画方式，可从各个方向滚动
       });
-    });
-  </script>
-
-  <script>
-    layui.use('element', function () {
-      var element = layui.element;
     });
   </script>
 
