@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>零封安全</title>
+  <link rel="icon" href="./src/images/logo.png" />
+  <link rel="stylesheet" href="./src/css/login.css" />
+  <link rel="stylesheet" href="./src/css/layout.css" />
+  <script type="text/javascript" src="./src/js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+  <div class="login-bg" style="height: 500px;">
+
+    <div class="card" style="height: 50px;">
+      <img src="./src/images/logo.png" style="height: 24px;">注册零封安全
+    </div>
+
+    <div class="line"></div>
+
+    <div class="login-form" style="height: 320px;" >
+      <div class="card">
+        <div class="login-info">*用户ID</div>
+        <input id="user-name" placeholder="请在此输入账号" class="login-input" type="text" name="r_name" />
+      </div>
+      <div class="card">
+        <div class="login-info">*账号密码</div>
+        <input placeholder="请在此输入密码" class="login-input" type="password" name="r_pass" />
+      </div>
+      <div class="card">
+        <div class="login-info">*注册邮箱</div>
+        <input placeholder="请在此输入申请邮箱" class="login-input" type="text" name="r_mail" />
+      </div>
+      <div class="card">
+        <div class="login-info">*手机账号</div>
+        <input placeholder="请在此输手机号码" class="login-input" type="number" name="r_phone" />
+      </div>
+
+      <div class="card">
+        <div class="card2" style="text-align: center; width:250px; margin:0;">
+          <div class="login-info" style="width: 250px;">备注信息</div>
+          <input placeholder="填写备注信息" class="login-input" style="width: 250px;height:40px" type="text" name="r_extra" />
+        </div>
+      </div>
+
+    </div>
+
+    <div class="line"></div>
+
+    <div class="card" style="height: 50px;">
+      <input class="login-bt" type="submit" value="注册申请" id="register-bt"/>
+    </div>
+
+  </div>
+
+  <script>
+    $("#register-bt").click(function(){
+      alert("注册");
+    });
+
+
+  </script>
+
+</body>
+
+</html>
