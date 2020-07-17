@@ -51,7 +51,8 @@
                 <dd><a href="">安全设置</a></dd>
               </dl> -->
         </li>
-        <li class="layui-nav-item"><a href="#" id="login-bt" onclick="login()">登录</a></li>
+        <li class="layui-nav-item"><a id="login-bt" onclick="login()" href="#">登录</a></li>
+        <li class="layui-nav-item"><a id="login-bt" onclick="register()" href="#">注册</a></li>
       </ul>
     </div>
   </div>
@@ -99,7 +100,21 @@
           fixed: false,
           resize: false,
         });
+        layer.title("登录零封安全", index);
+      });
+    }
 
+    function register() {
+      layui.use('layer', function () {
+        var layer = layui.layer;
+        var index = layer.open({
+          skin: 'demo-class',
+          type: 2,
+          content: ['register.html', 'no'],//这里content是一个普通的String
+          area: ['400px', '550px'],
+          fixed: false,
+          resize: false,
+        });
         layer.title("登录零封安全", index);
       });
     }
