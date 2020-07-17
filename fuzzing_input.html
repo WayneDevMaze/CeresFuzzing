@@ -14,8 +14,14 @@
   <div class="layui-ldayout layui-layout-admin" style="position: sticky; top:0; z-index:99; ">
     <div class="layui-header layui-bg-blue">
       <div class="layui-logo layui-bg-blue">
-        <img style="height: 40px; padding-bottom:5px;" src=".\src\images\logo.png">
-        <a href="index.html" style="color:white;"> 零封安全</a>
+        <div style="background: rgb(30,159,255); width:250px; height:100%; padding:0; align-items:center;"
+          class="card1">
+          <img style="height: 40px; padding-bottom:5px;" src=".\src\images\logo.png">
+          <div style="line-height: 20px; text-align:left;">
+            <a href="index.html" style="color:white;">零封安全<br></a>
+            <a href="index.html" style="color:rgba(255, 255, 255, 0.582); font-size:12px">新基建网络漏洞防御领军者</a>
+          </div>
+        </div>
       </div>
       <!-- 头部区域（可配合layui已有的水平导航） -->
       <ul class="layui-nav layui-layout-left">
@@ -46,167 +52,167 @@
             <dd><a href="">安全设置</a></dd>
           </dl> -->
         </li>
-        <li class="layui-nav-item"><a id="login-bt" onclick="login()" href="#" >登录</a></li>
+        <li class="layui-nav-item"><a id="login-bt" onclick="login()" href="#">登录</a></li>
       </ul>
     </div>
   </div>
 
-<div class="layui-row layui-col-space15">
-          <ul class="layui-nav layui-nav-tree layui-inline layui-col-md4" style="margin-right: 10px;">
-            <li class="layui-nav-item layui-nav-itemed">
-              <a>漏洞挖掘</a>
-              <dl class="layui-nav-child">
-                <dd><a href="javascript:fuzztarget();">目标程序</a></dd>
-                <dd><a href="javascript:fuzztestcase();">测试用例</a></dd>
-                <dd><a href="javascript:fuzzcreater();">fuzzer选择</a></dd>
-                <dd><a href="javascript:fuzzdict();">字典</a></dd>
-                <dd><a href="javascript:fuzzrun();">运行fuzz</a></dd>
-              </dl>
-            </li>
-            <li class="layui-nav-item layui-nav-itemed">
-              <a>漏洞扫描</a>
-              <dl class="layui-nav-child">
-                <dd><a href="javascript:;">端口扫描</a></dd>
-                <dd><a href="javascript:;">弱口令扫描</a></dd>
-                <dd><a href="javascript:;">指纹库匹配</a></dd>
-              </dl>
-            </li>
-          </ul>
-          
-          <div class="layui-col-md10">
-            <div class="layui-card">
-              <div class="layui-card-body">
+  <div class="layui-row layui-col-space15">
+    <ul class="layui-nav layui-nav-tree layui-inline layui-col-md4" style="margin-right: 10px;">
+      <li class="layui-nav-item layui-nav-itemed">
+        <a>漏洞挖掘</a>
+        <dl class="layui-nav-child">
+          <dd><a href="javascript:fuzztarget();">目标程序</a></dd>
+          <dd><a href="javascript:fuzztestcase();">测试用例</a></dd>
+          <dd><a href="javascript:fuzzcreater();">fuzzer选择</a></dd>
+          <dd><a href="javascript:fuzzdict();">字典</a></dd>
+          <dd><a href="javascript:fuzzrun();">运行fuzz</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item layui-nav-itemed">
+        <a>漏洞扫描</a>
+        <dl class="layui-nav-child">
+          <dd><a href="javascript:;">端口扫描</a></dd>
+          <dd><a href="javascript:;">弱口令扫描</a></dd>
+          <dd><a href="javascript:;">指纹库匹配</a></dd>
+        </dl>
+      </li>
+    </ul>
 
-                <div id="fuzztarget">
-                  <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-                    <legend>漏洞挖掘目标程序上传</legend>
-                  </fieldset>
-                  <form class="layui-form" action="">
-                    <div class="layui-form-item">
-                      <div class="layui-upload">
-                        <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
-                        <br><br>
-                        <button type="button" class="layui-btn" id="upload_target">开始上传</button>
-                      </div>
-                      <hr>
-                      <div class="card">
-                        <div class="header" style="font-size: 18px;">
-                          <div>上传说明</div>
-                        </div>
-                        <div class="content">
-                          如果无源码，请直接上传Linux二进制执行文件；<br>
-                          如果有源码，请将需要测试的程序，完整打包后进行上传；
-                        </div>
-                      </div>
-                    </div>
-                  </form>
+    <div class="layui-col-md10">
+      <div class="layui-card">
+        <div class="layui-card-body">
+
+          <div id="fuzztarget">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+              <legend>漏洞挖掘目标程序上传</legend>
+            </fieldset>
+            <form class="layui-form" action="">
+              <div class="layui-form-item">
+                <div class="layui-upload">
+                  <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
+                  <br><br>
+                  <button type="button" class="layui-btn" id="upload_target">开始上传</button>
                 </div>
-
-                <div id="fuzztestcase">
-                  <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-                    <legend>漏洞挖掘测试用例上传</legend>
-                  </fieldset>
-                  <form class="layui-form" action="">
-                    <div class="layui-form-item">
-                      <div class="layui-upload">
-                        <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
-                        <br><br>
-                        <button type="button" class="layui-btn" id="upload_target">开始上传</button>
-                      </div>
-                      <hr>
-                      <div class="card">
-                        <div class="header" style="font-size: 18px;">
-                          <div>上传说明</div>
-                        </div>
-                        <div class="content">
-                          如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-
-                <div id="fuzzcreater">
-                  <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-                    <legend>漏洞挖掘fuzzer选择</legend>
-                  </fieldset>
-                  <form class="layui-form" action="">
-                    <div class="layui-form-item">
-                      <div class="layui-upload">
-                        <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
-                        <br><br>
-                        <button type="button" class="layui-btn" id="upload_target">开始上传</button>
-                      </div>
-                      <hr>
-                      <div class="card">
-                        <div class="header" style="font-size: 18px;">
-                          <div>上传说明</div>
-                        </div>
-                        <div class="content">
-                          如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-
-                <div id="fuzzdict">
-                  <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-                    <legend>漏洞挖掘字典上传</legend>
-                  </fieldset>
-                  <form class="layui-form" action="">
-                    <div class="layui-form-item">
-                      <div class="layui-upload">
-                        <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
-                        <br><br>
-                        <button type="button" class="layui-btn" id="upload_target">开始上传</button>
-                      </div>
-                      <hr>
-                      <div class="card">
-                        <div class="header" style="font-size: 18px;">
-                          <div>上传说明</div>
-                        </div>
-                        <div class="content">
-                          如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-
-                <div id="fuzzrun">
-                  <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-                    <legend>运行fuzz程序</legend>
-                  </fieldset>
-                  <form class="layui-form" action="">
-                    <div class="layui-form-item">
-                      <div class="layui-upload">
-                        <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
-                        <br><br>
-                        <button type="button" class="layui-btn" id="upload_target">开始上传</button>
-                      </div>
-                      <hr>
-                      <div class="card">
-                        <div class="header" style="font-size: 18px;">
-                          <div>上传说明</div>
-                        </div>
-                        <div class="content">
-                          如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-
-                <div id="examples">
-                  <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-                    <legend>漏洞挖掘测试</legend>
-                  </fieldset>
+                <hr>
+                <div class="card">
+                  <div class="header" style="font-size: 18px;">
+                    <div>上传说明</div>
+                  </div>
+                  <div class="content">
+                    如果无源码，请直接上传Linux二进制执行文件；<br>
+                    如果有源码，请将需要测试的程序，完整打包后进行上传；
+                  </div>
                 </div>
               </div>
-            </div>
+            </form>
+          </div>
+
+          <div id="fuzztestcase">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+              <legend>漏洞挖掘测试用例上传</legend>
+            </fieldset>
+            <form class="layui-form" action="">
+              <div class="layui-form-item">
+                <div class="layui-upload">
+                  <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
+                  <br><br>
+                  <button type="button" class="layui-btn" id="upload_target">开始上传</button>
+                </div>
+                <hr>
+                <div class="card">
+                  <div class="header" style="font-size: 18px;">
+                    <div>上传说明</div>
+                  </div>
+                  <div class="content">
+                    如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="fuzzcreater">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+              <legend>漏洞挖掘fuzzer选择</legend>
+            </fieldset>
+            <form class="layui-form" action="">
+              <div class="layui-form-item">
+                <div class="layui-upload">
+                  <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
+                  <br><br>
+                  <button type="button" class="layui-btn" id="upload_target">开始上传</button>
+                </div>
+                <hr>
+                <div class="card">
+                  <div class="header" style="font-size: 18px;">
+                    <div>上传说明</div>
+                  </div>
+                  <div class="content">
+                    如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="fuzzdict">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+              <legend>漏洞挖掘字典上传</legend>
+            </fieldset>
+            <form class="layui-form" action="">
+              <div class="layui-form-item">
+                <div class="layui-upload">
+                  <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
+                  <br><br>
+                  <button type="button" class="layui-btn" id="upload_target">开始上传</button>
+                </div>
+                <hr>
+                <div class="card">
+                  <div class="header" style="font-size: 18px;">
+                    <div>上传说明</div>
+                  </div>
+                  <div class="content">
+                    如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="fuzzrun">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+              <legend>运行fuzz程序</legend>
+            </fieldset>
+            <form class="layui-form" action="">
+              <div class="layui-form-item">
+                <div class="layui-upload">
+                  <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
+                  <br><br>
+                  <button type="button" class="layui-btn" id="upload_target">开始上传</button>
+                </div>
+                <hr>
+                <div class="card">
+                  <div class="header" style="font-size: 18px;">
+                    <div>上传说明</div>
+                  </div>
+                  <div class="content">
+                    如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="examples">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+              <legend>漏洞挖掘测试</legend>
+            </fieldset>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
   <div class="footer">
     <!-- 底部固定区域 -->
