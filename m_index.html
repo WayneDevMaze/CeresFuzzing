@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>零封安全</title>
+  <link rel="stylesheet" href=".\src\m_css\layui.css" />
+  <link rel="stylesheet" href=".\src\m_css\layout.css" />
+  <link rel="icon" href="./src/images/logo.png" />
+  <script type="text/javascript" src="./src/js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body style="background: rgb(226, 226, 226);">
+  <!-- logo & 登录注册 -->
+  <div class="layui-bg-blue" style="padding: 5px;">
+    <div class="layui-logo layui-bg-blue card1" style="padding:0;">
+      <img style="height: 60px; " src=".\src\images\logo.png">
+      <a href="m_index.html" style="color:white; font-size: 40px;"> 零封安全</a>
+    </div>
+    <ul class="layui-nav layui-layout-right layui-bg-blue">
+      <li class="layui-nav-item">
+        <!-- <a href="javascript:;" style="display:block;">
+                    <img src="./src/images/banner/banner1.png" class="layui-nav-img">
+                    用户
+                  </a> -->
+        <!-- <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                  </dl> -->
+      </li>
+      <li class="layui-nav-item"><a style="font-size: 25px;" id="login-bt" onclick="login()" href="#">登录</a></li>
+    </ul>
+  </div>
+
+  <!-- 导航栏 -->
+  <div class="layui-layout layui-layout-admin" style="position: sticky; top:0; z-index:99; ">
+    <div class="layui-header layui-bg-blue">
+      <!-- 头部区域（可配合layui已有的水平导航） -->
+      <ul class="layui-nav layui-layout-center">
+        <li class="layui-nav-item"><a style="font-size: 25px;" href="m_knowledge_map.html">攻防知识图谱</a></li>
+        <li class="layui-nav-item"><a style="font-size: 25px;" href="m_AI_fuzzing.html">AI Fuzzing</a></li>
+        <li class="layui-nav-item"><a style="font-size: 25px;" href="m_product_service.html">产品服务</a></li>
+        <li class="layui-nav-item"><a style="font-size: 25px;" href="m_demo.html">场景案例</a></li>
+        <li class="layui-nav-item"><a style="font-size: 25px;" href="m_tech_support.html">技术支持</a></li>
+        <li class="layui-nav-item"><a style="font-size: 25px;" href="m_about.html">关于我们</a></li>
+
+        <!-- <li class="layui-nav-item">
+          <a href="javascript:;">其它系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="">邮件管理</a></dd>
+            <dd><a href="">消息管理</a></dd>
+            <dd><a href="">授权管理</a></dd>
+          </dl>
+        </li> -->
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- banner -->
+  <div class="card1">
+    <div class="layui-carousel" id="test1">
+      <div carousel-item>
+        <img src="./src/images/banner/banner1.png">
+        <img src="./src/images/banner/banner2.png">
+        <img src="./src/images/banner/banner3.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="card2">
+    <div class="header">两大关键技术</div>
+    <div class="header">
+      <img style="height: 80px;" src=".\src\images\gfzs.svg">
+      <div>攻防知识图谱</div>
+    </div>
+    <div class="content">
+      零封安全研发的攻防知识图谱是全国首个链条式覆盖的整体知识框架。
+      通过收集网络上的公开漏洞库数据，配合自建系统特征库数据，
+      构建漏洞知识图谱，实现漏洞、企业资产、安全态势的强逻辑关联
+    </div>
+    <div class="header">
+      <img style="height: 80px;" src=".\src\images\aifuzzing.svg">
+      <div>AI Fuzzing</div>
+    </div>
+    <div class="content">
+      AI赋能的未知漏洞挖掘模块，生成的高覆盖率的测试集，
+      能在用户级程序中能达到代码空间90%的覆盖率，深入发掘未知漏洞；
+      轻量级插桩框架可以减少70~90%的插桩代码量，无需项目源代码，
+      解决了客户的保密性问题，适配98%以上设备，这将极大地减少模糊测试进程在跟踪覆盖率时所产生的时空开销
+    </div>
+    <div class="line"></div>
+  </div>
+
+  <div class="card2">
+    <div class="header">三大拳头产品</div>
+    <div class="header">
+      漏洞知识图谱及攻击链查询
+    </div>
+    <div class="content">
+      <img style="margin:5px; height: 120px;" src="./src/images/ldzs.svg">
+      囊括全网近5年95%漏洞利用链，支持11种不同固件平台的代码关联，
+      在1万规模固件库实现秒级漏洞关联搜索
+    </div>
+    <div class="header">
+      <div>基于攻防知识图谱的漏洞扫描产品</div>
+    </div>
+    <div class="content">
+      <img style="margin:5px; height: 120px;" src="./src/images/jygf.svg">
+      支持面向设备的无损漏洞扫描，同时通过可视化技术助力多维度直观结果呈现，
+      通过知识匹配对比发现能潜在漏洞，对未知漏洞进行预警。
+    </div>
+    <div class="header">
+      <div>AI赋能漏洞挖掘产品</div>
+    </div>
+    <div class="content">
+      <img style="margin:5px; height: 120px;" src="./src/images/jygf.svg">
+      AI赋能的未知漏洞挖掘模块，生成的高覆盖率的测试集，
+      能在用户级程序中能达到代码空间90%的覆盖率，深入发掘未知漏洞；
+    </div>
+    <div class="line"></div>
+  </div>
+
+  <div class="card2">
+
+    <div class="header">覆盖主流场景
+    </div>
+
+    <div class="header">漏洞知识图谱及攻击链查询
+    </div>
+
+    <div class="card1" style="width: 80%;">
+      <div class="card2">
+        <div class="card1">
+          <img style="margin:5px; height: 200px;" src="./src/images/5gjz.svg">
+        </div>
+        <div class="content" style="font-size:35px; text-indent:0; text-align:center;">
+          5G基站建设
+        </div>
+      </div>
+
+      <div class="card2">
+        <div class="card1">
+          <img style="margin:5px; height: 200px;" src="./src/images/tgy.svg">
+        </div>
+        <div class="content" style="font-size:35px; text-indent:0; text-align:center;">
+          特高压
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card1" style="width: 80%;">
+      <div class="card2">
+        <div class="card1">
+          <img style="margin:5px; height: 200px;" src="./src/images/cjgt.svg">
+        </div>
+        <div class="content" style="font-size:35px; text-indent:0; text-align:center;">
+          城际高速铁路和城际轨道交通
+        </div>
+      </div>
+
+      <div class="card2">
+        <div class="card1">
+          <img style="margin:5px; height: 200px;" src="./src/images/xnyq.svg">
+        </div>
+        <div class="content" style="font-size:35px; text-indent:0; text-align:center;">
+          新能源汽车充电桩
+        </div>
+      </div>
+    </div>
+
+    <div class="card1" style="width: 80%;">
+      <div class="card2">
+        <div class="card1">
+          <img style="margin:5px; height: 200px;" src="./src/images/dsjz.svg">
+        </div>
+        <div class="content" style="font-size:35px; text-indent:0; text-align:center;">
+          大数据中心
+        </div>
+      </div>
+
+      <div class="card2">
+        <div class="card1">
+          <img style="margin:5px; height: 200px;" src="./src/images/rgzn.svg">
+        </div>
+        <div class="content" style="font-size:35px; text-indent:0; text-align:center;">
+          人工智能
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card1" style="width: 80%;">
+
+      <div class="card2">
+        <div class="card1">
+          <img style="margin:5px; height: 200px;" src="./src/images/gyhl.svg">
+        </div>
+        <div class="content" style="font-size:35px; text-indent:0; text-align:center;">
+          工业互联网
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div class="footer">
+    <!-- 底部固定区域 -->
+    © 零封安全 - footer
+  </div>
+
+
+  <script src=".\src\layui.js"></script>
+
+  <script>
+    //JavaScript代码区域
+    layui.use('carousel', function () {
+      var carousel = layui.carousel;
+      carousel.render({
+        elem: '#test1'
+        , width: '980px' //设置容器宽度
+        , height: '245px' //设置容器高度
+        // , full:'true' //是否全屏轮播,默认false
+        // , arrow: 'always' //始终显示箭头和点击按钮
+        // ,anim: 'updown' //切换动画方式，可从各个方向滚动
+      });
+    });
+  </script>
+
+  <script>
+    layui.use('element', function () {
+      var element = layui.element;
+    });
+  </script>
+
+  <script>
+    function login() {
+      layui.use('layer', function () {
+        var layer = layui.layer;
+        var index = layer.open({
+          skin: 'demo-class',
+          type: 2,
+          content: ['m_login.html', 'no'],//这里content是一个普通的String
+          area: ['800px', '600px'],
+          fixed: false,
+          resize: false,
+        });
+
+        layer.title("登录零封安全", index);
+      });
+    }
+  </script>
+
+</body>
+
+</html>
