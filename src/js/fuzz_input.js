@@ -74,3 +74,11 @@ layui.use('upload', function () {
         }
     });
 })
+
+$(document).on('click',"#start_fuzzing",function(){
+    layer.msg("开始fuzzing");
+});
+
+$(document).on('click', '#check_fuzzing', function () {
+    layer.msg("查看当前fuzzing结果");
+});

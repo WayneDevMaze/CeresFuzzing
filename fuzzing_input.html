@@ -187,19 +187,48 @@
             </fieldset>
             <form class="layui-form" action="">
               <div class="layui-form-item">
-                <div class="layui-upload">
-                  <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
-                  <br><br>
-                  <button type="button" class="layui-btn" id="upload_target">开始上传</button>
+                <label class="layui-form-label">单个测试程序内存大小限定</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入内存大小" class="layui-input">
                 </div>
-                <hr>
-                <div class="card">
-                  <div class="header" style="font-size: 18px;">
-                    <div>上传说明</div>
-                  </div>
-                  <div class="content">
-                    如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
-                  </div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label">输入用例文件夹</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入文件夹名称" class="layui-input">
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label">输出用例文件夹</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入文件夹名称" class="layui-input">
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label">单个测试程序时间限制</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入时间大小（毫秒）" class="layui-input">
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label">测试程序特殊名称</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入英文特殊名称（用于标记测试程序）" class="layui-input">
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label">测试线程数</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入线程数（1~16）" class="layui-input">
+                </div>
+              </div>
+
+              <hr>
+              
+              <div class="layui-form-item text-align: center;">
+                <div class="layui-upload layui-inline">
+                  <button type="button" class="layui-btn layui-btn-normal" id="start_fuzzing">开始Fuzzing</button>
+                  <button type="button" class="layui-btn" id="check_fuzzing">查看当前进度</button>
                 </div>
               </div>
             </form>
