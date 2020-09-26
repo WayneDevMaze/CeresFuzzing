@@ -62,27 +62,109 @@
       <li class="layui-nav-item layui-nav-itemed">
         <a>漏洞挖掘</a>
         <dl class="layui-nav-child">
-          <dd><a href="javascript:fuzztarget();">目标程序</a></dd>
-          <dd><a href="javascript:fuzztestcase();">测试用例</a></dd>
-          <dd><a href="javascript:fuzzcreater();">fuzzer选择</a></dd>
-          <dd><a href="javascript:fuzzdict();">字典</a></dd>
           <dd><a href="javascript:fuzzrun();">运行fuzz</a></dd>
+          <dd><a href="javascript:fuzztarget();">目标程序</a></dd>
+          <!-- <dd><a href="javascript:fuzztestcase();">测试用例</a></dd> -->
+          <dd><a href="javascript:fuzzcreater();">fuzzer选择</a></dd>
+          <!-- <dd><a href="javascript:fuzzdict();">字典</a></dd> -->
         </dl>
       </li>
-      <li class="layui-nav-item layui-nav-itemed">
+      <!-- <li class="layui-nav-item layui-nav-itemed">
         <a>漏洞扫描</a>
         <dl class="layui-nav-child">
           <dd><a href="javascript:;">端口扫描</a></dd>
           <dd><a href="javascript:;">弱口令扫描</a></dd>
           <dd><a href="javascript:;">指纹库匹配</a></dd>
         </dl>
-      </li>
+      </li> -->
     </ul>
 
     <div class="layui-col-md10">
       <div class="layui-card">
         <div class="layui-card-body">
+          
+          <!-- 精简输入类型和内容，下方展示输出数据，动态更新 -->
+          <div id="fuzzrun">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+                <legend>运行fuzz程序</legend>
+            </fieldset>
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">单个测试程序内存大小限定</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入内存大小" class="layui-input" id="set_mem">
+                    </div>
+                </div>
+                <!-- <div class="layui-form-item">
+                    <label class="layui-form-label">输入用例文件夹</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入文件夹名称" class="layui-input" id="set_input_dir">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">输出用例文件夹</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入文件夹名称" class="layui-input" id="set_output_dir">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">单个测试程序时间限制</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入时间大小（毫秒）" class="layui-input" id="set_time_limit">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">测试程序特殊名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入英文特殊名称（用于标记测试程序）" class="layui-input" id="set_idname">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">测试线程数</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入线程数（1~16）" class="layui-input" id="set_MS_count">
+                    </div>
+                </div> -->
 
+                <hr>
+
+                <div class="layui-form-item text-align: center;">
+                    <div class="layui-upload layui-inline">
+                        <button type="button" class="layui-btn layui-btn-normal" id="start_fuzzing" onclick="start()">开始Fuzzing</button>
+                        <button type="button" class="layui-btn" id="check_fuzzing" onclick="check_update()">查看当前进度</button>
+                    </div>
+                </div>
+
+                <hr>
+                <!-- <div class="layui-form-item text-align: center;">
+                  <table class="layui-table" lay-size="lg">
+                    <colgroup>
+                      <col width="150">
+                      <col width="200">
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>指标</th>
+                        <th>数值</th>
+                        <th>更新时间</th>
+                      </tr> 
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>完全路径数量</td>
+                        <td>2016-11-29</td>
+                        <td>人生就像是一场修行</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> -->
+
+                <table class="layui-hide" id="fuzz_data"></table>
+            </form>
+        </div>
+
+          <!-- 目标程序上传 -->
           <div id="fuzztarget">
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
               <legend>漏洞挖掘目标程序上传</legend>
@@ -132,24 +214,26 @@
             </form>
           </div>
 
+          <!-- 用一个假的下拉列表对fuzzer进行选择 -->
           <div id="fuzzcreater">
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
               <legend>漏洞挖掘fuzzer选择</legend>
             </fieldset>
             <form class="layui-form" action="">
               <div class="layui-form-item">
-                <div class="layui-upload">
-                  <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
-                  <br><br>
-                  <button type="button" class="layui-btn" id="upload_target">开始上传</button>
-                </div>
+                <select name="fuzzer" lay-verify="">
+                  <option value="1" selected>AFL</option>
+                  <option value="2" disabled>Libfuzzer（API试用）</option>
+                  <option value="3">Honggfuzz</option>
+                  <option value="4">Baay Fuzz</option>
+                </select>     
                 <hr>
                 <div class="card">
                   <div class="header" style="font-size: 18px;">
-                    <div>上传说明</div>
+                    <div>选择Fuzzer</div>
                   </div>
                   <div class="content">
-                    如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
+                    每个fuzzer都有自己试合的测试目标，请根据自己的目标测试程序挑选fuzzer。
                   </div>
                 </div>
               </div>
@@ -159,30 +243,6 @@
           <div id="fuzzdict">
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
               <legend>漏洞挖掘字典上传</legend>
-            </fieldset>
-            <form class="layui-form" action="">
-              <div class="layui-form-item">
-                <div class="layui-upload">
-                  <button type="button" class="layui-btn layui-btn-normal" id="choose_target">选择文件</button>
-                  <br><br>
-                  <button type="button" class="layui-btn" id="upload_target">开始上传</button>
-                </div>
-                <hr>
-                <div class="card">
-                  <div class="header" style="font-size: 18px;">
-                    <div>上传说明</div>
-                  </div>
-                  <div class="content">
-                    如果有自己的测试用例，请依次上传，并为每个用例单独名命，请勿出现重命名文件，否则之前文件将被覆盖；
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <div id="fuzzrun">
-            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-              <legend>运行fuzz程序</legend>
             </fieldset>
             <form class="layui-form" action="">
               <div class="layui-form-item">

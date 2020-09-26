@@ -1,3 +1,12 @@
+// 功能函数
+var sleep = function(time) {
+    var startTime = new Date().getTime() + parseInt(time, 10);
+    while(new Date().getTime() < startTime) {}
+};
+
+var fuzz_out_data;
+// json
+var fuzz_out_data_json = [];
 
 function visableExample() {
     console.log("hide examples");
@@ -75,6 +84,62 @@ layui.use('upload', function () {
     });
 })
 
+layui.use('table', function(){
+    var table = layui.table;
+    
+    //展示已知数据
+    fuzz_out_data = table.render({
+      elem: '#fuzz_data'
+      ,cols: [[ //标题栏
+        {field: 'id', title: '指标', width: 200, sort: true}
+        ,{field: 'data', title: '数值', width: 160}
+        ,{field: 'time', title: '更新时间', width: 160}
+        ]]
+      ,data: [{
+        "id": "路径总数"
+        ,"data": "1"
+        ,"time": "2020-9-26/23/23"
+      }, {
+        "id": "当前路径"
+        ,"data": "0"
+        ,"time": "2020-9-26/23/23"
+      }, {
+        "id": "pending_favs"
+        ,"data": "0"
+        ,"time": "2020-9-26/23/23"
+      }, {
+        "id": "pending_total"
+        ,"data": "0"
+        ,"time": "2020-9-26/23/23"
+      }, {
+        "id": "完成轮数"
+        ,"data": "93238"
+        ,"time": "2020-9-26/23/23"
+      }, {
+        "id": "独一无二crash"
+        ,"data": "93238"
+        ,"time": "2020-9-26/23/23"
+      }, {
+        "id": "独一无二hangs"
+        ,"data": "0"
+        ,"time": "2020-9-26/23/23"
+      }, {
+        "id": "最近crash之后执行次数"
+        ,"data": "21130217"
+        ,"time": "2020-9-26/23/23"
+      }, {
+        "id": "执行时间"
+        ,"data": "20"
+        ,"time": "2020-9-26/23/23"
+      }]
+      //,skin: 'line' //表格风格
+      ,even: true
+      //,page: true //是否显示分页
+      //,limits: [5, 7, 10]
+      //,limit: 5 //每页默认显示的数量
+    });
+  });
+
 $(document).on('click',"#start_fuzzing",function(){
     layer.msg("开始fuzzing");
 });
@@ -82,3 +147,90 @@ $(document).on('click',"#start_fuzzing",function(){
 $(document).on('click', '#check_fuzzing', function () {
     layer.msg("查看当前fuzzing结果");
 });
+
+// fuzz数据更新
+var start_show = 0;
+function update_data() {
+    fuzz_out_data_json[0] = {
+        "id": "路径总数"
+        , "data": "1"
+        , "time": "2020-9-26/23/23"
+    };
+    fuzz_out_data_json[1] = {
+        "id": "当前路径"
+        , "data": "0"
+        , "time": "2020-9-26/23/23"
+    };
+    fuzz_out_data_json[3] = {
+        "id": "pending_favs"
+        , "data": "0"
+        , "time": "2020-9-26/23/23"
+    };
+    fuzz_out_data_json[4] = {
+        "id": "pending_total"
+        , "data": "0"
+        , "time": "2020-9-26/23/23"
+    };
+    fuzz_out_data_json[5] = {
+        "id": "完成轮数"
+        , "data": "93238"
+        , "time": "2020-9-26/23/23"
+    };
+    fuzz_out_data_json[6] = {
+        "id": "独一无二crash"
+        , "data": "93238"
+        , "time": "2020-9-26/23/23"
+    };
+    fuzz_out_data_json[7] = {
+        "id": "独一无二hangs"
+        , "data": "0"
+        , "time": "2020-9-26/23/23"
+    };
+    fuzz_out_data_json[8] = {
+        "id": "最近crash之后执行次数"
+        , "data": "21130217"
+        , "time": "2020-9-26/23/23"
+    };
+    fuzz_out_data_json[9] = {
+        "id": "执行时间"
+        , "data": "20"
+        , "time": "2020-9-26/23/23"
+    };
+}
+function update() {
+    if (start_show == 1) {
+        console.log("更新");
+        update_data();
+        fuzz_out_data.reload({
+            elem: '#fuzz_data'
+            ,cols: [[ //标题栏
+                {field: 'id', title: '指标', width: 200, sort: true}
+                ,{field: 'data', title: '数值', width: 160}
+                ,{field: 'time', title: '更新时间', width: 160}
+                ]]
+            ,data: fuzz_out_data_json
+            //,skin: 'line' //表格风格
+            ,even: true
+            //,page: true //是否显示分页
+            //,limits: [5, 7, 10]
+            //,limit: 5 //每页默认显示的数量
+        });
+    }
+}
+
+function start() {
+    start_show = 1;
+    setInterval("update()", 1000);
+}
+
+function check_update() {
+    start_show = 1;
+    update();
+}
+
+// while (1) {
+//     if (start_show == 1) {
+//         sleep(1000);
+//         update();
+//     }
+// }
