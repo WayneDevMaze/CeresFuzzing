@@ -150,57 +150,63 @@ $(document).on('click', '#check_fuzzing', function () {
 
 // fuzz数据更新
 var start_show = 0;
-function update_data() {
+function update_data(json_str) {
+    var json = JSON.parse(json_str);
+
     fuzz_out_data_json[0] = {
         "id": "路径总数"
-        , "data": "1"
+        , "data": json["paths_total"]
         , "time": "2020-9-26/23/23"
     };
     fuzz_out_data_json[1] = {
         "id": "当前路径"
-        , "data": "0"
+        , "data": json["cur_path"]
         , "time": "2020-9-26/23/23"
     };
     fuzz_out_data_json[3] = {
         "id": "pending_favs"
-        , "data": "0"
+        , "data": json["pending_favs"]
         , "time": "2020-9-26/23/23"
     };
     fuzz_out_data_json[4] = {
         "id": "pending_total"
-        , "data": "0"
+        , "data": json["pending_total"]
         , "time": "2020-9-26/23/23"
     };
     fuzz_out_data_json[5] = {
         "id": "完成轮数"
-        , "data": "93238"
+        , "data": json["cycles_done"]
         , "time": "2020-9-26/23/23"
     };
     fuzz_out_data_json[6] = {
         "id": "独一无二crash"
-        , "data": "93238"
+        , "data": json["unique_crashes"]
         , "time": "2020-9-26/23/23"
     };
     fuzz_out_data_json[7] = {
         "id": "独一无二hangs"
-        , "data": "0"
+        , "data": json["unique_hangs"]
         , "time": "2020-9-26/23/23"
     };
     fuzz_out_data_json[8] = {
         "id": "最近crash之后执行次数"
-        , "data": "21130217"
+        , "data": json["execs_since_crash"]
         , "time": "2020-9-26/23/23"
     };
     fuzz_out_data_json[9] = {
         "id": "执行时间"
-        , "data": "20"
+        , "data": json["exec_timeout"]
         , "time": "2020-9-26/23/23"
     };
 }
 function update() {
     if (start_show == 1) {
-        console.log("更新");
-        update_data();
+        // console.log("更新");
+        
+        var json_str;
+        //这里的str是从后端传过来的json字符串，应该得想办法在这里更新一下，进行赋值
+
+        update_data(json_str);
         fuzz_out_data.reload({
             elem: '#fuzz_data'
             ,cols: [[ //标题栏
@@ -219,8 +225,13 @@ function update() {
 }
 
 function start() {
+    
+    //这里加开启fuzz的方法，启动afl
+
+
     start_show = 1;
     setInterval("update()", 1000);
+
 }
 
 function check_update() {
